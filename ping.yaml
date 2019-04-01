@@ -1,0 +1,7 @@
+---
+- name: ping all linux machines
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: ping
+      ping: 
