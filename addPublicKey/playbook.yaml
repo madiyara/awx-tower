@@ -20,8 +20,8 @@
       with_items:
         - "{{ all_users }}"
 
-    # - name: Copy the public key to each users
-    #   authorized_key:
-    #     user: "{{ item }}"
-    #     state: present
-    #     key: "{{ item.}}"
+    - name: Copy the public key to each users
+      authorized_key:
+        user: "{{ item.name }}"
+        state: present
+        key: "{{ item.key }}"
