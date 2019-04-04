@@ -1,5 +1,5 @@
 ---
-- name: ping all linux machines
+- name:  Create all users to remote system
   hosts: all
   become: yes
   become_method: sudo
@@ -12,6 +12,7 @@
   tasks:
     - name: Add list of users to remote system
       user:
+        name: "{{ item }}"
         state: present
         groups: "wheel"
       with_items:
